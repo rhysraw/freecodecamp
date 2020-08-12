@@ -1,0 +1,7 @@
+/*
+Note
+Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+*/
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // Change this line
+let result = text.match(myRegex);
