@@ -1,0 +1,12 @@
+function getIndexToIns(arr, num) {
+  var sorted_arr = arr.sort();
+  var maxmin_arr = [];
+  var index;
+  for (var i=0; i<sorted_arr.length; i++) {
+    maxmin_arr.push(num > sorted_arr[i]);
+  }
+  index = maxmin_arr.reduce(function(a, b){return a + b}, 0);
+  return index;
+}
+
+getIndexToIns([40, 60], 50);

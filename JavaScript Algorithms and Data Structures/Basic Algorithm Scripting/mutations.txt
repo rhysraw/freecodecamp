@@ -1,0 +1,13 @@
+function mutation(arr) {
+  var first_word = arr[0].toLowerCase().split("");
+  var second_word = arr[1].toLowerCase().split("");
+  var letter_present = [];
+  var index_of_letter;
+  for (var i=0; i<second_word.length; i++) {
+    index_of_letter = first_word.indexOf(second_word[i]);
+    letter_present.push(index_of_letter >= 0);
+  }
+  return letter_present.reduce(function(a, b){return a + b}, 0) == letter_present.length;
+}
+
+mutation(["hello", "hey"]);
