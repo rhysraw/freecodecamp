@@ -1,0 +1,17 @@
+function destroyer(arr) {
+  var initArr = arguments[0];
+  var otherArgsKeys = Object.keys(arguments).slice(1,);
+  for (var j=0; j<otherArgsKeys.length; j++) {
+    var present = true;
+    while (present) {
+      if (initArr.indexOf(arguments[otherArgsKeys[j]]) > -1) {
+        initArr.splice(initArr.indexOf(arguments[otherArgsKeys[j]]), 1);
+      } else if (initArr.indexOf(arguments[otherArgsKeys[j]]) === -1) {
+        present = false;
+      };
+    };
+  };
+  return initArr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);

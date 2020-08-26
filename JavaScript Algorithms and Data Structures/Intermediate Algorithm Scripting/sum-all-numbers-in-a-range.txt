@@ -1,0 +1,9 @@
+function sumAll(arr) {
+  var min = Math.min(...arr);
+  var max = Math.max(...arr);
+  var range = Array(max - min + 1).fill().map((_,i)=> min + i);
+  var sum = range.reduce(function(a, b){ return a + b }, 0);
+  return sum;
+}
+
+sumAll([1, 4]);
