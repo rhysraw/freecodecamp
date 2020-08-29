@@ -1,0 +1,22 @@
+function spinalCase(str) {
+  var arr_str = str.split('');
+  var sorted_arr = [];
+  for (var i=0; i<arr_str.length; i++) {
+    // remove any whitespace or underscores, replace with hyphen
+    if (i == 0) {
+      sorted_arr.push(arr_str[i].toLowerCase());
+    } else if (arr_str[i] == ' ' || arr_str[i] == '_' || arr_str[i] == '-') {
+      sorted_arr.push('-');
+    // if there's a capital letter and the last entry is a letter and it's not the first letter, put in a hyphen first
+    } else if (arr_str[i] == arr_str[i].toUpperCase() && sorted_arr.slice(-1)[0].match(/[a-z]/) != null) {
+      //console.log(sorted_arr);
+      sorted_arr.push('-');
+      sorted_arr.push(arr_str[i].toLowerCase());
+    } else {
+      sorted_arr.push(arr_str[i].toLowerCase());
+    };
+  };
+  return sorted_arr.join('');
+}
+
+spinalCase('This Is Spinal Tap');
