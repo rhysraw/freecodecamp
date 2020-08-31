@@ -1,0 +1,12 @@
+const squareList = (arr) => {
+  // Only change code below this line
+  // first, filter out all the negative numbers, and the decimals
+  var filtArr = arr.filter(i => i > 0 && i == parseInt(i));
+  // go through each element and square it
+  var sqrArr = filtArr.map(i => i ** 2);
+  return sqrArr;
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
