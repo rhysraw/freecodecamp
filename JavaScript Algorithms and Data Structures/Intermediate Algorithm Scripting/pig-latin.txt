@@ -1,0 +1,17 @@
+function translatePigLatin(str) {
+  var startVowel = /^[aeiou]/;
+  var firstVowel = /[aeiou]/;
+  var firstVowelIndex;
+  if (startVowel.test(str)) {
+    return str + 'way';
+  } else {
+    if (firstVowel.test(str)) {
+      firstVowelIndex = str.match(firstVowel).index;
+      return str.slice(firstVowelIndex) + str.slice(0, firstVowelIndex) + 'ay';
+    } else {
+      return str + 'ay';
+    }
+  };
+}
+
+translatePigLatin("consonant");
