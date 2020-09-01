@@ -1,0 +1,36 @@
+function convertHTML(str) {
+  var doubleQuote = /"/;
+  var apostrophe = /'/;
+  var nonAlphanumerics = /[&<>]/g;
+  var myRegex;
+  var matches = [];
+  var replaceStr = str;
+  if (doubleQuote.test(str)) {
+    myRegex = /[&<>"]/g;
+    matches = str.match(myRegex)
+  } else if (apostrophe.test(str)) {
+    myRegex = /[&<>']/g;
+    matches = str.match(myRegex)
+  } else if (nonAlphanumerics.test(str) == false) {
+    return str;
+  } else {
+    myRegex = /[&<>]/g;
+    matches = str.match(myRegex);
+  };
+  for (var i=0; i<matches.length; i++) {
+    if (matches[i] == '&') {
+      replaceStr = replaceStr.replace(/&/, '&amp;');
+    } else if (matches[i] == '<') {
+      replaceStr = replaceStr.replace(/</, '&lt;');
+    } else if (matches[i] == '>') {
+      replaceStr = replaceStr.replace(/>/, '&gt;');
+    } else if (matches[i] == "'") {
+      replaceStr = replaceStr.replace(/'/, '&apos;');
+    } else if (matches[i] == '"') {
+      replaceStr = replaceStr.replace(/"/, '&quot;');
+    }
+  };
+  return replaceStr;
+}
+
+convertHTML("Dolce & Gabbana");

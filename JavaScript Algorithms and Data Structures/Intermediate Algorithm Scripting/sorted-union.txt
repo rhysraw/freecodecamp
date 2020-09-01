@@ -1,0 +1,17 @@
+function uniteUnique(arr) {
+  var arrArrs = Object.values(arguments);
+  var uniqueArr = [];
+  var filtArr;
+  for (var a=0; a<arrArrs.length; a++) {
+    filtArr = [];
+    if (a == 0) {
+      uniqueArr.push(...arrArrs[a]);
+    } else {
+      filtArr = arrArrs[a].filter(e => uniqueArr.indexOf(e) == -1);
+      uniqueArr.push(...filtArr);
+    }
+  }
+  return uniqueArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
