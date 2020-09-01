@@ -1,0 +1,8 @@
+// Only change code below this line
+function urlSlug(title) {
+  var lowCase = title.toLowerCase();
+  var noWhitespace = lowCase.split(' ').filter(e => e != '');
+  var joinedSentence = noWhitespace.join('-');
+  return joinedSentence;
+}
+// Only change code above this line
