@@ -1,0 +1,14 @@
+function fearNotLetter(str) {
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  var firstLetter = alphabet.indexOf(str.split('')[0]);
+  var lastLetter = alphabet.indexOf(str.split('').slice(-1)[0]);
+  var subAlphabet = alphabet.slice(firstLetter, lastLetter + 1);
+  var missingLetter = subAlphabet.filter(i => str.indexOf(i) == -1);
+  if (missingLetter.length > 0) {
+    return missingLetter[0];
+  } else {
+    return undefined;
+  }
+}
+
+fearNotLetter("abce");

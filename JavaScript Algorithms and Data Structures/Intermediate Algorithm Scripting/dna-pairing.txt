@@ -1,0 +1,18 @@
+function pairElement(str) {
+  var elements = str.split('');
+  var dnaArr = [];
+  for (var i=0; i < elements.length; i++) {
+    if (elements[i] == 'A') {
+      dnaArr.push(['A', 'T']);
+    } else if (elements[i] == 'C') {
+      dnaArr.push(['C', 'G']);
+    } else if (elements[i] == 'G') {
+      dnaArr.push(['G', 'C']);
+    } else if (elements[i] == 'T') {
+      dnaArr.push(['T', 'A']);
+    };
+  };
+  return dnaArr;
+}
+
+pairElement("GCG");

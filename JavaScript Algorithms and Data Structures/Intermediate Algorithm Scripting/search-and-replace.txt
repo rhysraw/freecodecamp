@@ -1,0 +1,20 @@
+function myReplace(str, before, after) {
+  // first find out what case before is
+  var startCapital = /^[A-Z]/;
+  var firstLetterAfter = after.split('')[0];
+  var otherLetterAfter = after.split('').slice(1,);
+  var correctFirstLetter, correctCaseAfter;
+  var findRegex = new RegExp(before);
+  // set the case of after to the case of before
+  if (startCapital.test(before)) {
+    correctFirstLetter = firstLetterAfter.toUpperCase();
+  } else {
+    correctFirstLetter = firstLetterAfter.toLowerCase();
+  };
+  otherLetterAfter.unshift(correctFirstLetter);
+  correctCaseAfter = otherLetterAfter.join('');
+  // replace before with after
+  return str.replace(before, correctCaseAfter);
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
