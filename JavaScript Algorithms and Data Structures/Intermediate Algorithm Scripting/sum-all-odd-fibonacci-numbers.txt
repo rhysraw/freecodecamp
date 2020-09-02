@@ -1,0 +1,16 @@
+function sumFibs(num) {
+  // first produce a fibonacci sequence up to and including num
+  var fibArr = [1, 1];
+  var prevNums, sumPrevNums, filtFibArr, sumFiltFibArr;
+  while (fibArr.slice(-1)[0] <= num) {
+    prevNums = fibArr.slice(-2);
+    sumPrevNums = prevNums.reduce(function(a, b){ return a + b }, 0);
+    fibArr.push(sumPrevNums);
+  };
+  // filter out the even numbers
+  filtFibArr = fibArr.filter(j => j <= num).filter(i => i % 2 == 1);
+  // sum the remaining odd numbers
+  sumFiltFibArr = filtFibArr.reduce(function(a, b){ return a + b }, 0);
+  return sumFiltFibArr;
+};
+sumFibs(10);
