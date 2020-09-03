@@ -1,0 +1,28 @@
+function smallestCommons(arr) {
+  /*
+    generate the range of numbers
+    loop through each multiple of the highest number
+    for the current number, check if every other number is a divisior
+  */
+  var min = Math.min(...arr);
+  var max = Math.max(...arr);
+  var range = Array(max - min).fill().map((_,i)=> min + i);
+  var allDivisible = false;
+  var multiplier = 1;
+  var checkMultiple, numberDivisible;
+  // while loop to run until you find a common multiple
+  while (allDivisible == false) {
+    // set up the current multiplier to check
+    checkMultiple = max * multiplier;
+    numberDivisible = range.filter(i => checkMultiple % i == 0);
+    if (numberDivisible.length == range.length) {
+      allDivisible = true
+    } else {
+      multiplier += 1;
+    };
+  };
+  return checkMultiple;
+};
+
+
+smallestCommons([1,5]);

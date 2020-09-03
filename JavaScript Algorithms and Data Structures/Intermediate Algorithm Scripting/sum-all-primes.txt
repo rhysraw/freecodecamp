@@ -1,0 +1,24 @@
+function sumPrimes(num) {
+  // first generate all the prime number up to num into an array
+  // calculate the sum of the list
+  var divisible, divCheck, sumPrimes;
+  var primes = [];
+  for (var i=2; i<=num; i++) {
+    divisible = true;
+    divCheck = 2;
+    while (divisible && divCheck <= i/2) {
+      if (i % divCheck == 0) {
+        divisible = false;
+      } else {
+        divCheck += 1;
+      };
+    };
+    if (divisible) {
+      primes.push(i);
+    };
+  };
+  sumPrimes = primes.reduce(function(a, b) {return a + b}, 0);
+  return sumPrimes;
+}
+
+sumPrimes(10);
