@@ -1,0 +1,41 @@
+function steamrollArray(arr) {
+  /*
+  create a new array, what will be the flattened array
+  loop through each element of the array
+  if the element is not an array
+    add it to the flattened array
+  if the element is an array and is NOT empty
+    loop through each element of this array
+    if the element is not an array
+      add it to the flattened array
+    if the element is an array and is NOT empty
+      loop through each element of this array
+  else
+    do nothing
+  */
+  var flattened = [];
+  for (var i=0; i<arr.length; i++) {
+    if (Array.isArray(arr[i]) && arr[i].length > 0) {
+      for (var e=0; e<arr[i].length; e++) {
+        if (Array.isArray(arr[i][e])) {
+          flattened.push(getNum(arr[i][e]));
+        } else {
+          flattened.push(arr[i][e]);
+        };
+      };
+    } else if (Array.isArray(arr[i]) == false) {
+      flattened.push(arr[i]);
+    };
+  };
+  return flattened;
+}
+
+function getNum(a) {
+  if (Array.isArray(a)) {
+    return getNum(a[0]);
+  } else {
+    return a;
+  }
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);

@@ -1,0 +1,23 @@
+function truthCheck(collection, pre) {
+  var objKeys, truthy;
+  var prePresent = [];
+  for (var i=0; i<collection.length; i++) {
+    objKeys = Object.keys(collection[i]);
+    if (
+      objKeys.indexOf(pre) == -1 ||
+      collection[i][pre] == 0 ||
+      collection[i][pre] == undefined ||
+      collection[i][pre] == null ||
+      collection[i][pre] == '' ||
+      Object.is(collection[i][pre], NaN)
+    ) {
+      prePresent.push(false);
+    } else {
+      prePresent.push(true);
+    }
+  };
+  truthy = prePresent.reduce(function(a, b) {return a + b}, 0);
+  return truthy == prePresent.length;
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");

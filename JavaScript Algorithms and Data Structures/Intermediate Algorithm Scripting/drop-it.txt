@@ -1,0 +1,13 @@
+function dropElements(arr, func) {
+  var keepChecking = false;
+  var i = 0;
+  var filtArr;
+  while (keepChecking == false) {
+    keepChecking = func(arr[i]);
+    i++;
+  };
+  filtArr = arr.slice(i - 1,);
+  return filtArr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
