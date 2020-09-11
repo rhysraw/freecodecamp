@@ -1,0 +1,52 @@
+function convertToRoman(num) {
+ var splitNum = num.toString().split('').map(i => parseInt(i));
+ var romanNumeral = ''
+ while (splitNum.length < 4) {
+   splitNum.unshift('');
+ };
+ for (var i=0; i<splitNum.length; i++) {
+   if (splitNum[i] == '' || splitNum[i] == 0) {
+     romanNumeral += '';
+   } else if (splitNum[i] >= 1 && splitNum[i] <= 3) {
+     if (i == 0) {
+       romanNumeral += 'M'.repeat(splitNum[i]);
+     } else if (i == 1) {
+       romanNumeral += 'C'.repeat(splitNum[i]);
+     } else if (i == 2) {
+       romanNumeral += 'X'.repeat(splitNum[i]);
+     } else if (i == 3) {
+       romanNumeral += 'I'.repeat(splitNum[i]);
+     };
+   } else if (splitNum[i] == 4) {
+     if (i == 1) {
+       romanNumeral += 'CD';
+     } else if (i == 2) {
+       romanNumeral += 'XL';
+     } else if (i == 3) {
+       romanNumeral += 'IV';
+     };
+   } else if (splitNum[i] >= 5 && splitNum[i] <= 8) {
+     if (i == 1) {
+       romanNumeral += 'D';
+       romanNumeral += 'C'.repeat(splitNum[i] - 5);
+     } else if (i == 2) {
+       romanNumeral += 'L';
+       romanNumeral += 'X'.repeat(splitNum[i] - 5);
+     } else if (i == 3) {
+       romanNumeral += 'V';
+       romanNumeral += 'I'.repeat(splitNum[i] - 5);
+     };
+   } else if (splitNum[i] == 9) {
+     if (i == 1) {
+       romanNumeral += 'CM';
+     } else if (i == 2) {
+       romanNumeral += 'XC';
+     } else if (i == 3) {
+       romanNumeral += 'IX';
+     };
+   };
+ };
+ return romanNumeral;
+}
+
+convertToRoman(36);
