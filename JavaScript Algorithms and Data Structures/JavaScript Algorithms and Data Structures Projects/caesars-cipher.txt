@@ -1,0 +1,18 @@
+function rot13(str) {
+  var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var arrStr = str.split('');
+  var ciphered = '';
+  var curIndex, newIndex;
+  for (var i=0; i<arrStr.length; i++) {
+    if (alphabet.indexOf(arrStr[i]) == -1) {
+      ciphered += arrStr[i];
+    } else {
+      curIndex = alphabet.indexOf(arrStr[i])
+      newIndex = curIndex < 13 ? curIndex + 13 : curIndex - 13;
+      ciphered += alphabet[newIndex];
+    };
+  };
+  return ciphered;
+}
+
+rot13("A SERR PBQR PNZC");
