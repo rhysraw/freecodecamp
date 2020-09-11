@@ -1,0 +1,12 @@
+function palindrome(str) {
+  var palindrome;
+  var myRegex = /\w/g;
+  var alphaChars = str.match(myRegex).join('').replace('_', '').toLowerCase();
+  var reverseStr = alphaChars.split('').reverse().join('');
+  palindrome = alphaChars == reverseStr;
+  return palindrome;
+}
+
+
+
+palindrome("eye");
