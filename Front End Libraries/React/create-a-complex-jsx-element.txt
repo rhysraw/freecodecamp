@@ -1,0 +1,10 @@
+// write your code here
+const JSX = <div>
+  <h1>My first Header</h1>
+  <p>A paragraph</p>
+  <ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ul>
+</div>;
